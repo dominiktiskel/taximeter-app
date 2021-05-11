@@ -1,0 +1,43 @@
+{
+  "name": "TaximeterFormulaRow",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "TaximeterFormulaRowType",
+      "fieldValues": "FLAT_RATE,NUMBER_OF,FOR_EVERY",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "step",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "granulation",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taximeterFormula",
+      "otherEntityRelationshipName": "taximeterFormulaRow",
+      "relationshipName": "row"
+    }
+  ],
+  "entityTableName": "taximeter_formula_row",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210511064937"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "TaximeterFormula",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "TaximeterFormulaType",
+      "fieldValues": "DISTANCE,TIME,VIA,PASSENGER",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "taximeterFormulaRow",
+      "otherEntityRelationshipName": "row",
+      "relationshipName": "taximeterFormulaRow"
+    }
+  ],
+  "entityTableName": "taximeter_formula",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210511064936"
+}

@@ -1,0 +1,28 @@
+{
+  "taximeterApp": {
+    "taximeterFormulaRow": {
+      "home": {
+        "title": "Taximeter Formula Row",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Taximeter Formula Row",
+        "createOrEditLabel": "Dodaj lub edytuj: Taximeter Formula Row",
+        "notFound": "No Taximeter Formula Rows found"
+      },
+      "created": "Utworzono nowy obiekt typu Taximeter Formula Row z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Taximeter Formula Row z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Taximeter Formula Row z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Taximeter Formula Row {{ id }}?"
+      },
+      "detail": {
+        "title": "Taximeter Formula Row"
+      },
+      "id": "ID",
+      "type": "Type",
+      "value": "Value",
+      "step": "Step",
+      "granulation": "Granulation",
+      "row": "Row"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "taximeterApp": {
+    "taximeterFormula": {
+      "home": {
+        "title": "Taximeter Formulas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Taximeter Formula",
+        "createOrEditLabel": "Create or edit a Taximeter Formula",
+        "notFound": "No Taximeter Formulas found"
+      },
+      "created": "A new Taximeter Formula is created with identifier {{ param }}",
+      "updated": "A Taximeter Formula is updated with identifier {{ param }}",
+      "deleted": "A Taximeter Formula is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Taximeter Formula {{ id }}?"
+      },
+      "detail": {
+        "title": "Taximeter Formula"
+      },
+      "id": "ID",
+      "type": "Type",
+      "name": "Name",
+      "active": "Active",
+      "taximeterFormulaRow": "Taximeter Formula Row"
+    }
+  }
+}

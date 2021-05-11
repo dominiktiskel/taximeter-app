@@ -1,0 +1,27 @@
+{
+  "taximeterApp": {
+    "taximeterFormula": {
+      "home": {
+        "title": "Taximeter Formula",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Taximeter Formula",
+        "createOrEditLabel": "Dodaj lub edytuj: Taximeter Formula",
+        "notFound": "No Taximeter Formulas found"
+      },
+      "created": "Utworzono nowy obiekt typu Taximeter Formula z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Taximeter Formula z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Taximeter Formula z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Taximeter Formula {{ id }}?"
+      },
+      "detail": {
+        "title": "Taximeter Formula"
+      },
+      "id": "ID",
+      "type": "Type",
+      "name": "Name",
+      "active": "Active",
+      "taximeterFormulaRow": "Taximeter Formula Row"
+    }
+  }
+}

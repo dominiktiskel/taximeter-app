@@ -1,0 +1,82 @@
+<div>
+  <h2 id="page-heading" data-cy="TaximeterFormulaHeading">
+    <span jhiTranslate="taximeterApp.taximeterFormula.home.title">Taximeter Formulas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="taximeterApp.taximeterFormula.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-taximeter-formula"
+        [routerLink]="['/taximeter-formula/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="taximeterApp.taximeterFormula.home.createLabel"> Create a new Taximeter Formula </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="taximeterFormulas?.length === 0">
+    <span jhiTranslate="taximeterApp.taximeterFormula.home.notFound">No taximeterFormulas found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="taximeterFormulas && taximeterFormulas.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="taximeterApp.taximeterFormula.type">Type</span></th>
+          <th scope="col"><span jhiTranslate="taximeterApp.taximeterFormula.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="taximeterApp.taximeterFormula.active">Active</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let taximeterFormula of taximeterFormulas; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/taximeter-formula', taximeterFormula.id, 'view']">{{ taximeterFormula.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'taximeterApp.TaximeterFormulaType.' + taximeterFormula.type }}">{{ taximeterFormula.type }}</td>
+          <td>{{ taximeterFormula.name }}</td>
+          <td>{{ taximeterFormula.active }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/taximeter-formula', taximeterFormula.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/taximeter-formula', taximeterFormula.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(taximeterFormula)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

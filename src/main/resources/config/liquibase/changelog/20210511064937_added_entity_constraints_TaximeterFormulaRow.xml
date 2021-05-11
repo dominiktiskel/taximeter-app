@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity TaximeterFormulaRow.
+    -->
+    <changeSet id="20210511064937-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="row_id"
+                                 baseTableName="taximeter_formula_row"
+                                 constraintName="fk_taximeter_formula_row__row_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taximeter_formula"/>
+    </changeSet>
+</databaseChangeLog>

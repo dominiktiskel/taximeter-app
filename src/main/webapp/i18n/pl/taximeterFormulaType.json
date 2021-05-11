@@ -1,0 +1,11 @@
+{
+  "taximeterApp": {
+    "TaximeterFormulaType": {
+      "null": "",
+      "DISTANCE": "DISTANCE",
+      "TIME": "TIME",
+      "VIA": "VIA",
+      "PASSENGER": "PASSENGER"
+    }
+  }
+}
