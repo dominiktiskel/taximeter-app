@@ -1,0 +1,26 @@
+
+entity TaximeterFormula {
+    type TaximeterFormulaType required,
+	name String required,
+    active Boolean required
+}
+
+enum TaximeterFormulaType {
+	DISTANCE, TIME, VIA, PASSENGER
+}
+
+entity TaximeterFormulaRow {
+    type TaximeterFormulaRowType required
+	value Double required,
+    step Double required,
+    granulation Double,
+}
+
+enum TaximeterFormulaRowType {
+	FLAT_RATE, NUMBER_OF, FOR_EVERY
+}
+
+
+relationship OneToMany {
+	TaximeterFormula to TaximeterFormulaRow{row}
+}
