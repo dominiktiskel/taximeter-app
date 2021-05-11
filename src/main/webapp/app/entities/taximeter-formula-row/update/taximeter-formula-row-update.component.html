@@ -1,0 +1,117 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-taximeter-formula-row-heading"
+        data-cy="TaximeterFormulaRowCreateUpdateHeading"
+        jhiTranslate="taximeterApp.taximeterFormulaRow.home.createOrEditLabel"
+      >
+        Create or edit a Taximeter Formula Row
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterFormulaRow.type" for="field_type">Type</label>
+          <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
+            <option [ngValue]="null">{{ 'taximeterApp.TaximeterFormulaRowType.null' | translate }}</option>
+            <option value="FLAT_RATE">{{ 'taximeterApp.TaximeterFormulaRowType.FLAT_RATE' | translate }}</option>
+            <option value="NUMBER_OF">{{ 'taximeterApp.TaximeterFormulaRowType.NUMBER_OF' | translate }}</option>
+            <option value="FOR_EVERY">{{ 'taximeterApp.TaximeterFormulaRowType.FOR_EVERY' | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('type')!.invalid && (editForm.get('type')!.dirty || editForm.get('type')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('type')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterFormulaRow.value" for="field_value">Value</label>
+          <input type="number" class="form-control" name="value" id="field_value" data-cy="value" formControlName="value" />
+          <div *ngIf="editForm.get('value')!.invalid && (editForm.get('value')!.dirty || editForm.get('value')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('value')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('value')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterFormulaRow.step" for="field_step">Step</label>
+          <input type="number" class="form-control" name="step" id="field_step" data-cy="step" formControlName="step" />
+          <div *ngIf="editForm.get('step')!.invalid && (editForm.get('step')!.dirty || editForm.get('step')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('step')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('step')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterFormulaRow.granulation" for="field_granulation"
+            >Granulation</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="granulation"
+            id="field_granulation"
+            data-cy="granulation"
+            formControlName="granulation"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterFormulaRow.formula" for="field_formula">Formula</label>
+          <select class="form-control" id="field_formula" data-cy="formula" name="formula" formControlName="formula">
+            <option *ngIf="!editForm.get('formula')!.value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="
+                taximeterFormulaOption.id === editForm.get('formula')!.value?.id ? editForm.get('formula')!.value : taximeterFormulaOption
+              "
+              *ngFor="let taximeterFormulaOption of taximeterFormulasSharedCollection; trackBy: trackTaximeterFormulaById"
+            >
+              {{ taximeterFormulaOption.id }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['formula'])!.invalid && (editForm.get(['formula'])!.dirty || editForm.get(['formula'])!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['formula'])?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            This field is required.
+          </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
