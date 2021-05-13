@@ -1,0 +1,30 @@
+{
+  "taximeterApp": {
+    "taximeterOffer": {
+      "home": {
+        "title": "Taximeter Offers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Taximeter Offer",
+        "createOrEditLabel": "Create or edit a Taximeter Offer",
+        "notFound": "No Taximeter Offers found"
+      },
+      "created": "A new Taximeter Offer is created with identifier {{ param }}",
+      "updated": "A Taximeter Offer is updated with identifier {{ param }}",
+      "deleted": "A Taximeter Offer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Taximeter Offer {{ id }}?"
+      },
+      "detail": {
+        "title": "Taximeter Offer"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "validFrom": "Valid From",
+      "validTo": "Valid To",
+      "created": "Created",
+      "updated": "Updated",
+      "group": "Group"
+    }
+  }
+}

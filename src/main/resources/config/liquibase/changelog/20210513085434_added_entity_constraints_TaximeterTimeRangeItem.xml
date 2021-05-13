@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity TaximeterTimeRangeItem.
+    -->
+    <changeSet id="20210513085434-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="range_id"
+                                 baseTableName="taximeter_time_range_item"
+                                 constraintName="fk_taximeter_time_range_item__range_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taximeter_time_range"/>
+    </changeSet>
+</databaseChangeLog>

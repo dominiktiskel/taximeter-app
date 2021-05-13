@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity TaximeterFixedListItem.
+    -->
+    <changeSet id="20210513085431-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="list_id"
+                                 baseTableName="taximeter_fixed_list_item"
+                                 constraintName="fk_taximeter_fixed_list_item__list_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taximeter_fixed_list"/>
+    </changeSet>
+</databaseChangeLog>

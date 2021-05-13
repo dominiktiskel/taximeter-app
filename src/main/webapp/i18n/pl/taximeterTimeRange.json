@@ -1,0 +1,28 @@
+{
+  "taximeterApp": {
+    "taximeterTimeRange": {
+      "home": {
+        "title": "Taximeter Time Range",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Taximeter Time Range",
+        "createOrEditLabel": "Dodaj lub edytuj: Taximeter Time Range",
+        "notFound": "No Taximeter Time Ranges found"
+      },
+      "created": "Utworzono nowy obiekt typu Taximeter Time Range z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Taximeter Time Range z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Taximeter Time Range z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Taximeter Time Range {{ id }}?"
+      },
+      "detail": {
+        "title": "Taximeter Time Range"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "created": "Created",
+      "updated": "Updated",
+      "item": "Item"
+    }
+  }
+}

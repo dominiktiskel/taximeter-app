@@ -1,0 +1,30 @@
+{
+  "taximeterApp": {
+    "taximeterFixedList": {
+      "home": {
+        "title": "Taximeter Fixed Lists",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Taximeter Fixed List",
+        "createOrEditLabel": "Create or edit a Taximeter Fixed List",
+        "notFound": "No Taximeter Fixed Lists found"
+      },
+      "created": "A new Taximeter Fixed List is created with identifier {{ param }}",
+      "updated": "A Taximeter Fixed List is updated with identifier {{ param }}",
+      "deleted": "A Taximeter Fixed List is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Taximeter Fixed List {{ id }}?"
+      },
+      "detail": {
+        "title": "Taximeter Fixed List"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "type": "Type",
+      "matchingRules": "Matching Rules",
+      "created": "Created",
+      "updated": "Updated",
+      "item": "Item"
+    }
+  }
+}

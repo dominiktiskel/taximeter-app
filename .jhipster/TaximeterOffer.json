@@ -1,0 +1,48 @@
+{
+  "name": "TaximeterOffer",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validFrom",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "validTo",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updated",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "taximeterOfferGroup",
+      "otherEntityRelationshipName": "offer",
+      "relationshipName": "group"
+    }
+  ],
+  "entityTableName": "taximeter_offer",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210513085427"
+}
