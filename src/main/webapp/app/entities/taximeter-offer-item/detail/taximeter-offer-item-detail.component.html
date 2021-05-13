@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="taximeterOfferItem">
+      <h2 data-cy="taximeterOfferItemDetailsHeading">
+        <span jhiTranslate="taximeterApp.taximeterOfferItem.detail.title">Taximeter Offer Item</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ taximeterOfferItem.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.name">Name</span></dt>
+        <dd>
+          <span>{{ taximeterOfferItem.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.description">Description</span></dt>
+        <dd>
+          <span>{{ taximeterOfferItem.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.billCompanyPays">Bill Company Pays</span></dt>
+        <dd>
+          <span>{{ taximeterOfferItem.billCompanyPays }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.customerPays">Customer Pays</span></dt>
+        <dd>
+          <span>{{ taximeterOfferItem.customerPays }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.taxiGets">Taxi Gets</span></dt>
+        <dd>
+          <span>{{ taximeterOfferItem.taxiGets }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.taxiPays">Taxi Pays</span></dt>
+        <dd>
+          <span>{{ taximeterOfferItem.taxiPays }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.created">Created</span></dt>
+        <dd>
+          <span>{{ taximeterOfferItem.created | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.updated">Updated</span></dt>
+        <dd>
+          <span>{{ taximeterOfferItem.updated | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.fixedList1">Fixed List 1</span></dt>
+        <dd>
+          <div *ngIf="taximeterOfferItem.fixedList1">
+            <a [routerLink]="['/taximeter-fixed-list', taximeterOfferItem.fixedList1?.id, 'view']">{{
+              taximeterOfferItem.fixedList1?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.fixedList2">Fixed List 2</span></dt>
+        <dd>
+          <div *ngIf="taximeterOfferItem.fixedList2">
+            <a [routerLink]="['/taximeter-fixed-list', taximeterOfferItem.fixedList2?.id, 'view']">{{
+              taximeterOfferItem.fixedList2?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.formula">Formula</span></dt>
+        <dd>
+          <div *ngIf="taximeterOfferItem.formula">
+            <a [routerLink]="['/taximeter-formula', taximeterOfferItem.formula?.id, 'view']">{{ taximeterOfferItem.formula?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.timeRange">Time Range</span></dt>
+        <dd>
+          <div *ngIf="taximeterOfferItem.timeRange">
+            <a [routerLink]="['/taximeter-time-range', taximeterOfferItem.timeRange?.id, 'view']">{{ taximeterOfferItem.timeRange?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.preference">Preference</span></dt>
+        <dd>
+          <span *ngFor="let preference of taximeterOfferItem.preferences; let last = last">
+            <a [routerLink]="['/preference', preference?.id, 'view']">{{ preference.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOfferItem.group">Group</span></dt>
+        <dd>
+          <div *ngIf="taximeterOfferItem.group">
+            <a [routerLink]="['/taximeter-offer-group', taximeterOfferItem.group?.id, 'view']">{{ taximeterOfferItem.group?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/taximeter-offer-item', taximeterOfferItem.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

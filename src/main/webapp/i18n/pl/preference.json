@@ -1,0 +1,24 @@
+{
+  "taximeterApp": {
+    "preference": {
+      "home": {
+        "title": "Preference",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Preference",
+        "createOrEditLabel": "Dodaj lub edytuj: Preference",
+        "notFound": "No Preferences found"
+      },
+      "created": "Utworzono nowy obiekt typu Preference z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Preference z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Preference z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Preference {{ id }}?"
+      },
+      "detail": {
+        "title": "Preference"
+      },
+      "id": "ID",
+      "taximeterOfferItem": "Taximeter Offer Item"
+    }
+  }
+}

@@ -15,7 +15,20 @@
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083640_added_entity_TaximeterOffer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083641_added_entity_TaximeterOfferGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083642_added_entity_TaximeterOfferItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083643_added_entity_TaximeterFixedList.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083644_added_entity_TaximeterFixedListItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083645_added_entity_TaximeterFormula.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083646_added_entity_TaximeterTimeRange.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083647_added_entity_TaximeterTimeRangeItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083648_added_entity_Preference.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210513083641_added_entity_constraints_TaximeterOfferGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083642_added_entity_constraints_TaximeterOfferItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083644_added_entity_constraints_TaximeterFixedListItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210513083647_added_entity_constraints_TaximeterTimeRangeItem.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

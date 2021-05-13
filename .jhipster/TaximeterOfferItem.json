@@ -1,0 +1,88 @@
+{
+  "name": "TaximeterOfferItem",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "billCompanyPays",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "customerPays",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "taxiGets",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "taxiPays",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updated",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taximeterFixedList",
+      "otherEntityRelationshipName": "taximeterOfferItem",
+      "relationshipName": "fixedList1"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taximeterFixedList",
+      "otherEntityRelationshipName": "taximeterOfferItem",
+      "relationshipName": "fixedList2"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taximeterFormula",
+      "otherEntityRelationshipName": "taximeterOfferItem",
+      "relationshipName": "formula"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taximeterTimeRange",
+      "otherEntityRelationshipName": "taximeterOfferItem",
+      "relationshipName": "timeRange"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "preference",
+      "otherEntityRelationshipName": "taximeterOfferItem",
+      "relationshipName": "preference",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taximeterOfferGroup",
+      "otherEntityRelationshipName": "item",
+      "relationshipValidateRules": "required",
+      "relationshipName": "group"
+    }
+  ],
+  "entityTableName": "taximeter_offer_item",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210513083642"
+}
