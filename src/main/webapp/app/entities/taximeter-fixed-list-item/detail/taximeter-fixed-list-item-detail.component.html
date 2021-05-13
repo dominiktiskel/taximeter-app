@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="taximeterFixedListItem">
+      <h2 data-cy="taximeterFixedListItemDetailsHeading">
+        <span jhiTranslate="taximeterApp.taximeterFixedListItem.detail.title">Taximeter Fixed List Item</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ taximeterFixedListItem.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFixedListItem.from">From</span></dt>
+        <dd>
+          <span>{{ taximeterFixedListItem.from }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFixedListItem.to">To</span></dt>
+        <dd>
+          <span>{{ taximeterFixedListItem.to }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFixedListItem.value">Value</span></dt>
+        <dd>
+          <span>{{ taximeterFixedListItem.value }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFixedListItem.valueReverse">Value Reverse</span></dt>
+        <dd>
+          <span>{{ taximeterFixedListItem.valueReverse }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFixedListItem.created">Created</span></dt>
+        <dd>
+          <span>{{ taximeterFixedListItem.created | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFixedListItem.updated">Updated</span></dt>
+        <dd>
+          <span>{{ taximeterFixedListItem.updated | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFixedListItem.list">List</span></dt>
+        <dd>
+          <div *ngIf="taximeterFixedListItem.list">
+            <a [routerLink]="['/taximeter-fixed-list', taximeterFixedListItem.list?.id, 'view']">{{ taximeterFixedListItem.list?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/taximeter-fixed-list-item', taximeterFixedListItem.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

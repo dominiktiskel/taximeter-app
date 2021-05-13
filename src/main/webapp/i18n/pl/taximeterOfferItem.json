@@ -1,0 +1,37 @@
+{
+  "taximeterApp": {
+    "taximeterOfferItem": {
+      "home": {
+        "title": "Taximeter Offer Item",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Taximeter Offer Item",
+        "createOrEditLabel": "Dodaj lub edytuj: Taximeter Offer Item",
+        "notFound": "No Taximeter Offer Items found"
+      },
+      "created": "Utworzono nowy obiekt typu Taximeter Offer Item z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Taximeter Offer Item z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Taximeter Offer Item z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Taximeter Offer Item {{ id }}?"
+      },
+      "detail": {
+        "title": "Taximeter Offer Item"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "billCompanyPays": "Bill Company Pays",
+      "customerPays": "Customer Pays",
+      "taxiGets": "Taxi Gets",
+      "taxiPays": "Taxi Pays",
+      "created": "Created",
+      "updated": "Updated",
+      "fixedList1": "Fixed List 1",
+      "fixedList2": "Fixed List 2",
+      "formula": "Formula",
+      "timeRange": "Time Range",
+      "preference": "Preference",
+      "group": "Group"
+    }
+  }
+}

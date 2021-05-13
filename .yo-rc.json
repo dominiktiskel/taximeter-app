@@ -42,7 +42,19 @@
     "jwtSecretKey": "ZTllMGY1YzBiMzA0ODAzNmNhNzUwMDk2Y2NiM2I5NTc2ZjUwZDUzMTFlZGRkMzY0ODY4YzBmOTcyOGY3ZWEyMjViZjczZWU5Y2VlM2EyODRiYzQ2NGNhNzE0ODcwZjYyODkyMGZlMjc2YjA5ZWU4Y2E4NGQ4YjY0MzQ3N2NiMDM=",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "reactive": false
+    "reactive": false,
+    "entities": [
+      "TaximeterOffer",
+      "TaximeterOfferGroup",
+      "TaximeterOfferItem",
+      "TaximeterFixedList",
+      "TaximeterFixedListItem",
+      "TaximeterFormula",
+      "TaximeterTimeRange",
+      "TaximeterTimeRangeItem",
+      "Preference"
+    ],
+    "lastLiquibaseTimestamp": 1620896920000
   },
   "git-provider": "GitHub",
   "git-company": "dominiktiskel",

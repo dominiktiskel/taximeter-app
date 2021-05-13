@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="taximeterFormula">
+      <h2 data-cy="taximeterFormulaDetailsHeading">
+        <span jhiTranslate="taximeterApp.taximeterFormula.detail.title">Taximeter Formula</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ taximeterFormula.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFormula.name">Name</span></dt>
+        <dd>
+          <span>{{ taximeterFormula.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFormula.description">Description</span></dt>
+        <dd>
+          <span>{{ taximeterFormula.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFormula.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'taximeterApp.TaximeterFormulaType.' + taximeterFormula.type }}">{{ taximeterFormula.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFormula.chargeBy">Charge By</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'taximeterApp.TaximeterChargeByType.' + taximeterFormula.chargeBy }}">{{
+            taximeterFormula.chargeBy
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFormula.jsonData">Json Data</span></dt>
+        <dd>
+          <span>{{ taximeterFormula.jsonData }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFormula.created">Created</span></dt>
+        <dd>
+          <span>{{ taximeterFormula.created | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterFormula.updated">Updated</span></dt>
+        <dd>
+          <span>{{ taximeterFormula.updated | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/taximeter-formula', taximeterFormula.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

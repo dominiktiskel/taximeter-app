@@ -1,0 +1,9 @@
+{
+  "taximeterApp": {
+    "TaximeterFixedListType": {
+      "null": "",
+      "POST_CODE": "POST_CODE",
+      "ZONE": "ZONE"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="taximeterOffer">
+      <h2 data-cy="taximeterOfferDetailsHeading"><span jhiTranslate="taximeterApp.taximeterOffer.detail.title">Taximeter Offer</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ taximeterOffer.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOffer.name">Name</span></dt>
+        <dd>
+          <span>{{ taximeterOffer.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOffer.description">Description</span></dt>
+        <dd>
+          <span>{{ taximeterOffer.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOffer.validFrom">Valid From</span></dt>
+        <dd>
+          <span>{{ taximeterOffer.validFrom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOffer.validTo">Valid To</span></dt>
+        <dd>
+          <span>{{ taximeterOffer.validTo | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOffer.created">Created</span></dt>
+        <dd>
+          <span>{{ taximeterOffer.created | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterOffer.updated">Updated</span></dt>
+        <dd>
+          <span>{{ taximeterOffer.updated | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/taximeter-offer', taximeterOffer.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
