@@ -1,0 +1,116 @@
+
+
+entity TaximeterOffer {
+	name String required,
+    description String,
+    validFrom ZonedDateTime, 
+    validTo ZonedDateTime,
+    created ZonedDateTime,
+    updated ZonedDateTime
+}
+
+entity TaximeterOfferGroup {
+	name String required,
+    description String,
+    invoiceAs String,
+    chargeBy TaximeterChargeByType required,
+    created ZonedDateTime,
+    updated ZonedDateTime
+}
+
+
+entity TaximeterOfferItem {
+	name String required,
+    description String,
+    billCompanyPays Double,
+    customerPays Double,
+    taxiGets Double,
+    taxiPays Double,
+    created ZonedDateTime,
+    updated ZonedDateTime
+}
+
+
+entity TaximeterFixedList {
+	name String required,
+    description String,
+    type TaximeterFixedListType required,
+    matchingRules TaximeterMultipickupMatchingRules,
+    created ZonedDateTime,
+    updated ZonedDateTime
+}
+
+entity TaximeterFixedListItem {
+	from String required,
+    to String required,
+    value Double required,
+    valueReverse Double,
+    created ZonedDateTime,
+    updated ZonedDateTime
+}
+
+entity TaximeterFormula {
+	name String required,
+    description String,
+    type TaximeterFormulaType required,
+    chargeBy TaximeterChargeByType required,
+    jsonData String required,
+    created ZonedDateTime,
+    updated ZonedDateTime
+}
+
+entity TaximeterTimeRange {
+	name String required,
+    description String,
+    created ZonedDateTime,
+    updated ZonedDateTime
+}
+
+
+entity TaximeterTimeRangeItem {
+	day String required,
+    hours String required,
+    created ZonedDateTime,
+    updated ZonedDateTime
+}
+
+entity Preference {
+
+}
+
+enum TaximeterFixedListType {
+	POST_CODE, ZONE
+}
+
+enum TaximeterFormulaType {
+	FLAT, IMPULSE
+}
+
+enum TaximeterChargeByType {
+	DISTANCE, TIME, VIA
+}
+
+enum TaximeterMultipickupMatchingRules {
+	NOT_ALLOWED, STRINCT, FLEXIBLE, FIRST_LEG_ONLY
+}
+
+relationship OneToMany {
+	TaximeterFixedList{item} to TaximeterFixedListItem{list required},
+    TaximeterOffer{group} to TaximeterOfferGroup{offer required},
+    TaximeterOfferGroup{item} to TaximeterOfferItem{group required},
+    TaximeterTimeRange{item} to TaximeterTimeRangeItem{range required}
+}
+
+relationship ManyToOne {
+	TaximeterOfferItem{fixedList1} to TaximeterFixedList,
+    TaximeterOfferItem{fixedList2} to TaximeterFixedList,
+    TaximeterOfferItem{formula} to TaximeterFormula,
+    TaximeterOfferItem{timeRange} to TaximeterTimeRange,
+}
+
+relationship ManyToMany {
+	TaximeterOfferItem{preference} to Preference{taximeterOfferItem}
+}
+
+dto * with mapstruct
+service * with serviceImpl
