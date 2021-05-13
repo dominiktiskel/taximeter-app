@@ -1,0 +1,9 @@
+{
+  "taximeterApp": {
+    "TaximeterFormulaType": {
+      "null": "",
+      "FLAT": "FLAT",
+      "IMPULSE": "IMPULSE"
+    }
+  }
+}

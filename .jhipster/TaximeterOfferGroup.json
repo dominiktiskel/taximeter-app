@@ -1,0 +1,57 @@
+{
+  "name": "TaximeterOfferGroup",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "invoiceAs",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "chargeBy",
+      "fieldType": "TaximeterChargeByType",
+      "fieldValues": "DISTANCE,TIME,VIA",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updated",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "taximeterOfferItem",
+      "otherEntityRelationshipName": "group",
+      "relationshipName": "item"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taximeterOffer",
+      "otherEntityRelationshipName": "group",
+      "relationshipValidateRules": "required",
+      "relationshipName": "offer"
+    }
+  ],
+  "entityTableName": "taximeter_offer_group",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210513090833"
+}

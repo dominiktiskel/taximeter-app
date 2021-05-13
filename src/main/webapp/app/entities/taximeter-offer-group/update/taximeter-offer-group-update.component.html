@@ -1,0 +1,136 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-taximeter-offer-group-heading"
+        data-cy="TaximeterOfferGroupCreateUpdateHeading"
+        jhiTranslate="taximeterApp.taximeterOfferGroup.home.createOrEditLabel"
+      >
+        Create or edit a Taximeter Offer Group
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterOfferGroup.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterOfferGroup.description" for="field_description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterOfferGroup.invoiceAs" for="field_invoiceAs"
+            >Invoice As</label
+          >
+          <input type="text" class="form-control" name="invoiceAs" id="field_invoiceAs" data-cy="invoiceAs" formControlName="invoiceAs" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterOfferGroup.chargeBy" for="field_chargeBy">Charge By</label>
+          <select class="form-control" name="chargeBy" formControlName="chargeBy" id="field_chargeBy" data-cy="chargeBy">
+            <option [ngValue]="null">{{ 'taximeterApp.TaximeterChargeByType.null' | translate }}</option>
+            <option value="DISTANCE">{{ 'taximeterApp.TaximeterChargeByType.DISTANCE' | translate }}</option>
+            <option value="TIME">{{ 'taximeterApp.TaximeterChargeByType.TIME' | translate }}</option>
+            <option value="VIA">{{ 'taximeterApp.TaximeterChargeByType.VIA' | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('chargeBy')!.invalid && (editForm.get('chargeBy')!.dirty || editForm.get('chargeBy')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('chargeBy')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterOfferGroup.created" for="field_created">Created</label>
+          <div class="d-flex">
+            <input
+              id="field_created"
+              data-cy="created"
+              type="datetime-local"
+              class="form-control"
+              name="created"
+              formControlName="created"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterOfferGroup.updated" for="field_updated">Updated</label>
+          <div class="d-flex">
+            <input
+              id="field_updated"
+              data-cy="updated"
+              type="datetime-local"
+              class="form-control"
+              name="updated"
+              formControlName="updated"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterOfferGroup.offer" for="field_offer">Offer</label>
+          <select class="form-control" id="field_offer" data-cy="offer" name="offer" formControlName="offer">
+            <option *ngIf="!editForm.get('offer')!.value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="taximeterOfferOption.id === editForm.get('offer')!.value?.id ? editForm.get('offer')!.value : taximeterOfferOption"
+              *ngFor="let taximeterOfferOption of taximeterOffersSharedCollection; trackBy: trackTaximeterOfferById"
+            >
+              {{ taximeterOfferOption.id }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['offer'])!.invalid && (editForm.get(['offer'])!.dirty || editForm.get(['offer'])!.touched)">
+          <small class="form-text text-danger" *ngIf="editForm.get(['offer'])?.errors?.required" jhiTranslate="entity.validation.required">
+            This field is required.
+          </small>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

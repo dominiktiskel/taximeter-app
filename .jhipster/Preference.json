@@ -1,0 +1,23 @@
+{
+  "name": "Preference",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "taximeterOfferItem",
+      "otherEntityRelationshipName": "preference",
+      "relationshipName": "taximeterOfferItem",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "preference",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210513090840"
+}
