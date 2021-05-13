@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="taximeterTimeRangeItem">
+      <h2 data-cy="taximeterTimeRangeItemDetailsHeading">
+        <span jhiTranslate="taximeterApp.taximeterTimeRangeItem.detail.title">Taximeter Time Range Item</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ taximeterTimeRangeItem.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterTimeRangeItem.day">Day</span></dt>
+        <dd>
+          <span>{{ taximeterTimeRangeItem.day }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterTimeRangeItem.hours">Hours</span></dt>
+        <dd>
+          <span>{{ taximeterTimeRangeItem.hours }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterTimeRangeItem.created">Created</span></dt>
+        <dd>
+          <span>{{ taximeterTimeRangeItem.created | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterTimeRangeItem.updated">Updated</span></dt>
+        <dd>
+          <span>{{ taximeterTimeRangeItem.updated | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="taximeterApp.taximeterTimeRangeItem.range">Range</span></dt>
+        <dd>
+          <div *ngIf="taximeterTimeRangeItem.range">
+            <a [routerLink]="['/taximeter-time-range', taximeterTimeRangeItem.range?.id, 'view']">{{ taximeterTimeRangeItem.range?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/taximeter-time-range-item', taximeterTimeRangeItem.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

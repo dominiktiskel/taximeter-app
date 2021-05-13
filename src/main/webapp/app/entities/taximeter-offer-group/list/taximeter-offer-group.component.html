@@ -1,0 +1,96 @@
+<div>
+  <h2 id="page-heading" data-cy="TaximeterOfferGroupHeading">
+    <span jhiTranslate="taximeterApp.taximeterOfferGroup.home.title">Taximeter Offer Groups</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="taximeterApp.taximeterOfferGroup.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-taximeter-offer-group"
+        [routerLink]="['/taximeter-offer-group/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="taximeterApp.taximeterOfferGroup.home.createLabel"> Create a new Taximeter Offer Group </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="taximeterOfferGroups?.length === 0">
+    <span jhiTranslate="taximeterApp.taximeterOfferGroup.home.notFound">No taximeterOfferGroups found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="taximeterOfferGroups && taximeterOfferGroups.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="taximeterApp.taximeterOfferGroup.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="taximeterApp.taximeterOfferGroup.description">Description</span></th>
+          <th scope="col"><span jhiTranslate="taximeterApp.taximeterOfferGroup.invoiceAs">Invoice As</span></th>
+          <th scope="col"><span jhiTranslate="taximeterApp.taximeterOfferGroup.chargeBy">Charge By</span></th>
+          <th scope="col"><span jhiTranslate="taximeterApp.taximeterOfferGroup.created">Created</span></th>
+          <th scope="col"><span jhiTranslate="taximeterApp.taximeterOfferGroup.updated">Updated</span></th>
+          <th scope="col"><span jhiTranslate="taximeterApp.taximeterOfferGroup.offer">Offer</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let taximeterOfferGroup of taximeterOfferGroups; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/taximeter-offer-group', taximeterOfferGroup.id, 'view']">{{ taximeterOfferGroup.id }}</a>
+          </td>
+          <td>{{ taximeterOfferGroup.name }}</td>
+          <td>{{ taximeterOfferGroup.description }}</td>
+          <td>{{ taximeterOfferGroup.invoiceAs }}</td>
+          <td jhiTranslate="{{ 'taximeterApp.TaximeterChargeByType.' + taximeterOfferGroup.chargeBy }}">
+            {{ taximeterOfferGroup.chargeBy }}
+          </td>
+          <td>{{ taximeterOfferGroup.created | formatMediumDatetime }}</td>
+          <td>{{ taximeterOfferGroup.updated | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="taximeterOfferGroup.offer">
+              <a [routerLink]="['/taximeter-offer', taximeterOfferGroup.offer?.id, 'view']">{{ taximeterOfferGroup.offer?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/taximeter-offer-group', taximeterOfferGroup.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/taximeter-offer-group', taximeterOfferGroup.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(taximeterOfferGroup)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

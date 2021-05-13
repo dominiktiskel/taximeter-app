@@ -1,0 +1,51 @@
+{
+  "name": "TaximeterFixedListItem",
+  "fields": [
+    {
+      "fieldName": "from",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "to",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "valueReverse",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updated",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taximeterFixedList",
+      "otherEntityRelationshipName": "item",
+      "relationshipValidateRules": "required",
+      "relationshipName": "list"
+    }
+  ],
+  "entityTableName": "taximeter_fixed_list_item",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210513085431"
+}

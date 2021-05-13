@@ -1,0 +1,125 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-taximeter-fixed-list-heading"
+        data-cy="TaximeterFixedListCreateUpdateHeading"
+        jhiTranslate="taximeterApp.taximeterFixedList.home.createOrEditLabel"
+      >
+        Create or edit a Taximeter Fixed List
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterFixedList.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterFixedList.description" for="field_description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterFixedList.type" for="field_type">Type</label>
+          <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
+            <option [ngValue]="null">{{ 'taximeterApp.TaximeterFixedListType.null' | translate }}</option>
+            <option value="POST_CODE">{{ 'taximeterApp.TaximeterFixedListType.POST_CODE' | translate }}</option>
+            <option value="ZONE">{{ 'taximeterApp.TaximeterFixedListType.ZONE' | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('type')!.invalid && (editForm.get('type')!.dirty || editForm.get('type')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('type')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterFixedList.matchingRules" for="field_matchingRules"
+            >Matching Rules</label
+          >
+          <select
+            class="form-control"
+            name="matchingRules"
+            formControlName="matchingRules"
+            id="field_matchingRules"
+            data-cy="matchingRules"
+          >
+            <option [ngValue]="null">{{ 'taximeterApp.TaximeterMultipickupMatchingRules.null' | translate }}</option>
+            <option value="NOT_ALLOWED">{{ 'taximeterApp.TaximeterMultipickupMatchingRules.NOT_ALLOWED' | translate }}</option>
+            <option value="STRINCT">{{ 'taximeterApp.TaximeterMultipickupMatchingRules.STRINCT' | translate }}</option>
+            <option value="FLEXIBLE">{{ 'taximeterApp.TaximeterMultipickupMatchingRules.FLEXIBLE' | translate }}</option>
+            <option value="FIRST_LEG_ONLY">{{ 'taximeterApp.TaximeterMultipickupMatchingRules.FIRST_LEG_ONLY' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterFixedList.created" for="field_created">Created</label>
+          <div class="d-flex">
+            <input
+              id="field_created"
+              data-cy="created"
+              type="datetime-local"
+              class="form-control"
+              name="created"
+              formControlName="created"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="taximeterApp.taximeterFixedList.updated" for="field_updated">Updated</label>
+          <div class="d-flex">
+            <input
+              id="field_updated"
+              data-cy="updated"
+              type="datetime-local"
+              class="form-control"
+              name="updated"
+              formControlName="updated"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

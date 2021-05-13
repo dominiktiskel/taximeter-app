@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity TaximeterOfferItem.
+    -->
+    <changeSet id="20210513085429-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="fixed_list1_id"
+                                 baseTableName="taximeter_offer_item"
+                                 constraintName="fk_taximeter_offer_item__fixed_list1_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taximeter_fixed_list"/>
+
+        <addForeignKeyConstraint baseColumnNames="fixed_list2_id"
+                                 baseTableName="taximeter_offer_item"
+                                 constraintName="fk_taximeter_offer_item__fixed_list2_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taximeter_fixed_list"/>
+
+        <addForeignKeyConstraint baseColumnNames="formula_id"
+                                 baseTableName="taximeter_offer_item"
+                                 constraintName="fk_taximeter_offer_item__formula_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taximeter_formula"/>
+
+        <addForeignKeyConstraint baseColumnNames="time_range_id"
+                                 baseTableName="taximeter_offer_item"
+                                 constraintName="fk_taximeter_offer_item__time_range_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taximeter_time_range"/>
+
+        <addForeignKeyConstraint baseColumnNames="taximeter_offer_item_id"
+                                 baseTableName="rel_taximeter_offer_item__preference"
+                                 constraintName="fk_rel_taximeter_offer_item__pr__taximeter_offer_item_fe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taximeter_offer_item"/>
+
+        <addForeignKeyConstraint baseColumnNames="preference_id"
+                                 baseTableName="rel_taximeter_offer_item__preference"
+                                 constraintName="fk_rel_taximeter_offer_item__preference__preference_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="preference"/>
+
+        <addForeignKeyConstraint baseColumnNames="group_id"
+                                 baseTableName="taximeter_offer_item"
+                                 constraintName="fk_taximeter_offer_item__group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taximeter_offer_group"/>
+    </changeSet>
+</databaseChangeLog>
