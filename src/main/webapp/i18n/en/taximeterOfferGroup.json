@@ -1,0 +1,31 @@
+{
+  "taximeterApp": {
+    "taximeterOfferGroup": {
+      "home": {
+        "title": "Taximeter Offer Groups",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Taximeter Offer Group",
+        "createOrEditLabel": "Create or edit a Taximeter Offer Group",
+        "notFound": "No Taximeter Offer Groups found"
+      },
+      "created": "A new Taximeter Offer Group is created with identifier {{ param }}",
+      "updated": "A Taximeter Offer Group is updated with identifier {{ param }}",
+      "deleted": "A Taximeter Offer Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Taximeter Offer Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Taximeter Offer Group"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "invoiceAs": "Invoice As",
+      "chargeBy": "Charge By",
+      "created": "Created",
+      "updated": "Updated",
+      "item": "Item",
+      "offer": "Offer"
+    }
+  }
+}

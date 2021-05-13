@@ -1,0 +1,42 @@
+{
+  "name": "TaximeterTimeRangeItem",
+  "fields": [
+    {
+      "fieldName": "day",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hours",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updated",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taximeterTimeRange",
+      "otherEntityRelationshipName": "item",
+      "relationshipValidateRules": "required",
+      "relationshipName": "range"
+    }
+  ],
+  "entityTableName": "taximeter_time_range_item",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210513083647"
+}

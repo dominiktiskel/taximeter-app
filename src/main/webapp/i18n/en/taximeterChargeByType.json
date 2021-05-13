@@ -1,0 +1,10 @@
+{
+  "taximeterApp": {
+    "TaximeterChargeByType": {
+      "null": "",
+      "DISTANCE": "DISTANCE",
+      "TIME": "TIME",
+      "VIA": "VIA"
+    }
+  }
+}

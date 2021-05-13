@@ -1,0 +1,50 @@
+{
+  "name": "TaximeterFormula",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TaximeterFormulaType",
+      "fieldValues": "FLAT,IMPULSE",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "chargeBy",
+      "fieldType": "TaximeterChargeByType",
+      "fieldValues": "DISTANCE,TIME,VIA",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "jsonData",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updated",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "taximeter_formula",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210513083645"
+}
